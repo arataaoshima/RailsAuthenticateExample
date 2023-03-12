@@ -1,0 +1,17 @@
+<div class="container text-center">
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong><%= message %></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <% end %>
+  <%= form_tag("/users/#{@user.id}/update") do %>
+    <h4>User Name</h4>
+    <input name="username" class="form-control" value="<%= @user.username %>">
+    <h4>Email</h4>
+    <input name="email" class="form-control" value="<%= @user.email %>">
+    <h4>Password</h4>
+    <input name="password" class="form-control" type="password" value="<%= @user.password %>">
+    <input type="submit" value="Edit User Profile" class="btn btn-outline-secondary">
+  <% end %>
+</div>

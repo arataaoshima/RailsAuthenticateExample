@@ -1,0 +1,13 @@
+<div class="container text-center">
+  <%= form_tag("/posts/create") do %>
+    <h4>Create New Post</h4>
+    <% @post.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><%= message %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+    <textarea class="form-control" rows="5" name="content"><%=@post.content %></textarea>
+    <input type="submit" value="投稿" class="btn btn-outline-success">
+  <% end %>
+</div>

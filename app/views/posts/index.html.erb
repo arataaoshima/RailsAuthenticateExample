@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Posts List</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Post by</th>
+        <th scope="col">Content</th>
+        <th scope="col">Created_at</th>
+        <th scope="col">Updated_at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <th scope="row"><%= post.id %></th>
+        <td><%= post.user.username %></td>
+        <td><%= link_to post.content, "/posts/#{post.id}" %></td>
+        <td><%= post.created_at %></td>
+        <td><%= post.updated_at %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

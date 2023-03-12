@@ -1,0 +1,13 @@
+<div class="container text-center">
+  <h2>Edit This Post</h2>
+  <% @post.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong><%= message %></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <% end %>
+  <%= form_tag("/posts/#{@post.id}/update") do %>
+    <textarea class="form-control" rows="5" name="content"><%= @post.content %></textarea>
+    <input type="submit" value="Edit" class="btn btn-outline-success">
+  <% end %>
+</div>

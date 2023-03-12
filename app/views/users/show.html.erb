@@ -1,0 +1,14 @@
+<div class="container text-center">
+  <h1><%= @user.username %></h1>
+  <h3><%= @user.email %></h3>
+  <h3><%= @user.password %></h3>
+  <% if @user.posts %>
+  <h3>Posts</h3>
+    <% @user.posts.each do |post| %>
+      <h5><%= link_to post.content, "/posts/#{post.id}" %></h5>
+    <% end %>
+  <% end %>
+  <% if @current_user.id == @user.id %>
+  <%= link_to "Edit Profile", "/users/#{@user.id}/edit", {class:"btn btn-outline-success"} %>
+  <% end %>
+</div>
